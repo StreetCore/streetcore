@@ -21,21 +21,35 @@ color:white;
 
 /* NAVBAR */
 
-<nav>
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 50px;
+background:black;
+}
 
-<div class="logo">
-<img src="logo.jpg">
-</div>
+.logo img{
+height:45px;
+}
 
-<ul>
-<li><a href="#">Inicio</a></li>
-<li><a href="#">Tienda</a></li>
-<li><a href="#contacto">Contacto</a></li>
-<li><a href="https://www.instagram.com/streetcore_26/" target="_blank">Instagram</a></li>
-<li class="cart" onclick="toggleCart()">🛒 <span id="cart-count">0</span></li>
-</ul>
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+align-items:center;
+}
 
-</nav>
+nav a{
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+.cart{
+cursor:pointer;
+font-size:20px;
+}
 
 /* HERO */
 
@@ -108,6 +122,37 @@ font-weight:bold;
 cursor:pointer;
 }
 
+/* CARRITO */
+
+#cart-panel{
+position:fixed;
+top:0;
+right:-350px;
+width:300px;
+height:100%;
+background:#1a1a1a;
+padding:20px;
+transition:0.3s;
+overflow:auto;
+}
+
+#cart-panel.active{
+right:0;
+}
+
+#cart-panel ul{
+list-style:none;
+margin-top:20px;
+}
+
+#cart-count{
+background:red;
+padding:3px 7px;
+border-radius:10px;
+font-size:12px;
+margin-left:5px;
+}
+
 /* CONTACTO */
 
 .contact{
@@ -115,13 +160,7 @@ padding:60px;
 text-align:center;
 }
 
-.contact a{
-color:white;
-text-decoration:none;
-font-size:18px;
-}
-
-/* WHATSAPP FLOAT */
+/* WHATSAPP */
 
 .whatsapp{
 position:fixed;
@@ -134,8 +173,6 @@ border-radius:50%;
 font-size:24px;
 text-decoration:none;
 }
-
-/* FOOTER */
 
 footer{
 margin-top:60px;
@@ -159,8 +196,9 @@ color:gray;
 <ul>
 <li><a href="#">Inicio</a></li>
 <li><a href="#">Tienda</a></li>
-<li><a href="#">Contacto</a></li>
-<li class="cart">🛒</li>
+<li><a href="#contacto">Contacto</a></li>
+<li><a href="https://www.instagram.com/streetcore_26/" target="_blank">Instagram</a></li>
+<li class="cart" onclick="toggleCart()">🛒 <span id="cart-count">0</span></li>
 </ul>
 
 </nav>
@@ -183,63 +221,28 @@ color:gray;
 <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
 <h3>Remera StreetCore</h3>
 <p>$20</p>
-<button>Agregar al carrito</button>
+<button onclick="addToCart('Remera StreetCore',20)">Agregar al carrito</button>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c">
 <h3>Buzo StreetCore</h3>
 <p>$35</p>
-<button onclick="addToCart('Remera StreetCore',20)">Agregar al carrito</button>
-  <button onclick="addToCart('Buzo StreetCore',35)">Agregar al carrito</button>
-  <button onclick="addToCart('Gorra StreetCore',15)">Agregar al carrito</button>>
+<button onclick="addToCart('Buzo StreetCore',35)">Agregar al carrito</button>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1520975922203-bf9c1b29a2a9">
 <h3>Gorra StreetCore</h3>
 <p>$15</p>
-<button>Agregar al carrito</button>
-
-  #cart-panel{
-position:fixed;
-top:0;
-right:-350px;
-width:300px;
-height:100%;
-background:#1a1a1a;
-padding:20px;
-transition:0.3s;
-overflow:auto;
-}
-
-#cart-panel.active{
-right:0;
-}
-
-#cart-panel ul{
-list-style:none;
-margin-top:20px;
-}
-
-#cart-panel li{
-margin-bottom:10px;
-}
-
-#cart-count{
-background:red;
-padding:3px 7px;
-border-radius:10px;
-font-size:12px;
-margin-left:5px;
-}
+<button onclick="addToCart('Gorra StreetCore',15)">Agregar al carrito</button>
 </div>
 
 </div>
 
 </section>
 
-  <div id="cart-panel">
+<div id="cart-panel">
 
 <h2>Carrito</h2>
 
@@ -251,7 +254,7 @@ margin-left:5px;
 
 </div>
 
-<section class="contact">
+<section class="contact" id="contacto">
 
 <h2>Contacto</h2>
 
@@ -268,6 +271,7 @@ streetcore418@gmail.com
 <footer>
 <p>© 2026 StreetCore - Todos los derechos reservados</p>
 </footer>
+
 <script>
 
 let cart = []
@@ -310,9 +314,6 @@ document.getElementById("cart-panel").classList.toggle("active")
 }
 
 </script>
+
 </body>
 </html>
-
-
-
-
