@@ -21,35 +21,21 @@ color:white;
 
 /* NAVBAR */
 
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 50px;
-background:black;
-}
+<nav>
 
-.logo img{
-height:45px;
-}
+<div class="logo">
+<img src="logo.jpg">
+</div>
 
-nav ul{
-display:flex;
-list-style:none;
-gap:30px;
-align-items:center;
-}
+<ul>
+<li><a href="#">Inicio</a></li>
+<li><a href="#">Tienda</a></li>
+<li><a href="#contacto">Contacto</a></li>
+<li><a href="https://www.instagram.com/streetcore_26/" target="_blank">Instagram</a></li>
+<li class="cart" onclick="toggleCart()">🛒 <span id="cart-count">0</span></li>
+</ul>
 
-nav a{
-text-decoration:none;
-color:white;
-font-weight:bold;
-}
-
-.cart{
-font-size:22px;
-cursor:pointer;
-}
+</nav>
 
 /* HERO */
 
@@ -238,5 +224,6 @@ streetcore418@gmail.com
 
 </body>
 </html>
+
 
 
